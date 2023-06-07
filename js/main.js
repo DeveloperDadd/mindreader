@@ -13,6 +13,21 @@ function render() {
         col.classList.add("col-sm");
         col.classList.add("col-12");
         row.appendChild(col);    
+    const heading = document.createElement("h1");
+        heading.setAttribute("id", "heading");
+        col.appendChild(heading);
+    const nextButton = document.createElement("button");
+        nextButton.setAttribute("id", "nextButton");
+        col.appendChild(nextButton);
+    const exampleText = document.createElement("p")
+        exampleText.setAttribute("id", "exampleText");
+        col.appendChild(exampleText);
+    const goButton = document.createElement("button");
+        goButton.setAttribute("id", "goButton");
+        col.appendChild(goButton);
+    const backButton = document.createElement("button");
+        backButton.setAttribute("id", "backButton");
+        col.appendChild(backButton);
 }
 
 render ();
