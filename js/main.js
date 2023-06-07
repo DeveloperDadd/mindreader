@@ -2,17 +2,17 @@
 //Event listener on page load, run the render function
 
 function render() {
-        const contain = document.createElement("div");
+    const app = document.getElementById("app");    
+    const contain = document.createElement("div");
         contain.classList.add("container");
-        const row = document.createElement("div");
+        app.appendChild(contain);
+    const row = document.createElement("div");
         row.classList.add("row");
-        const col = document.createElement("div");
+        contain.appendChild(row);
+    const col = document.createElement("div");
         col.classList.add("col-sm");
         col.classList.add("col-12");
-        contain.appendChild(row);
-        row.appendChild(col);
-        const app = document.getElementById("app");
-        app.appendChild(contain);
+        row.appendChild(col);    
 }
 
 render ();
