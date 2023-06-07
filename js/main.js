@@ -1,17 +1,21 @@
 //The below function when invoked should create a div with class container, another one with class row, and finally one with two classes: col-sm and col-12.
-/*function render() {
-    return{
+//Event listener on page load, run the render function
+
+function render() {
         const contain = document.createElement("div");
-        contain.addClassList("container");
+        contain.classList.add("container");
         const row = document.createElement("div");
-        row.addClassList("row");
-        document.getElementsByClassName("container").appendChild(row);
+        row.classList.add("row");
         const col = document.createElement("div");
-        col.addClistList("col-sm col-12");
-        document.getElementsByClassName("row").appendChild(col);}
+        col.classList.add("col-sm");
+        col.classList.add("col-12");
+        contain.appendChild(row);
+        row.appendChild(col);
+        const app = document.getElementById("app");
+        app.appendChild(contain);
 }
 
-render ();*/
+render ();
 
 const heading = document.getElementById("heading");
 const nextButton = document.getElementById("next");
@@ -19,13 +23,13 @@ const exampleText = document.getElementById("exampleText");
 const goButton = document.getElementById("go");
 const backButton = document.getElementById("back");
 
-let currentPage = 1;
+let currentPage = 0;
 let pageOne = {
-    'heading' : heading.innerHTML ="I can read your mind", 
-    'nextButton' : nextButton.style.visibility = 'hidden',
-    'exampleText' : document.style.visibility = 'hidden',
-    'goButton' : goButton.style.visibility = 'inital',
-    'backButton' : backButton.style.visibility = ''
+    'headingText' : "I can read your mind", 
+    'nextButtonVisibility' : nextButton.style.visibility = 'hidden',
+    'exampleTextVisibility' : document.style.visibility = 'hidden',
+    'goButtonVisibility' : goButton.style.visibility = 'inital',
+    'backButtonVisibility' : backButton.style.visibility = ''
 };
 let pageTwo = {
     'heading' : heading.innerHTML = 'Pick a number from 01 - 99',
@@ -42,6 +46,8 @@ let pageThree = {
     'backButton' : backButton.style.visibility = 'initial'
 }
 
+
+// look at using switch case
 function checkPage() {
     if (currentPage === 1) {
         console.log('You are on page ' + currentPage);
@@ -64,7 +70,7 @@ function checkPage() {
     }
 }
 
-checkPage();
+
 
 
 
