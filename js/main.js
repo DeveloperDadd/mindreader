@@ -44,7 +44,7 @@ let pageOne = {
     'nextButtonVisibility' : false,
     'exampleTextVisibility' : false,
     'goButtonVisibility' : true,
-    'backButtonVisibility' : false
+    'roundButtonVisibility' : false
 };
 let pageTwo = {
     'heading' : 'Pick a number from 01 - 99',
@@ -85,10 +85,13 @@ let pageSix = {
 let pages = [pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix];
 let currentPage = 0;
 
-
-
 function updatePage() {
     heading.textContent = pages[currentPage].heading; 
     exampleText.textContent = pages[currentPage].exampleText;
+    if (pages[currentPage].goButton) {
+        goButton.textContent = GO;
+    } else {
+        goButton.innerHTML = ""
+    }
 };
 
