@@ -104,8 +104,6 @@ function updatePage() {
     };
 };
 
-
-
 function nextPage() { //function to increment the currentPage by one and then update the page
     currentPage += 1;
     updatePage();
