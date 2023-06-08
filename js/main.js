@@ -81,7 +81,10 @@ function updatePage() {
     if (pages[currentPage].roundButtonVisibility) {
         roundButton.textContent = GO;
     } else {
-        roundButton.innerHTML = "<i class="bi bi-arrow-90deg-left"></i>"
+        roundButton.innerHTML = "<i></i>";
+        let icon = document.querySelector("i");
+        icon.classList.add("bi");
+        icon.classList.add("bi-arrow-90deg-left");
     }
     if (pages[currentPage].nextButtonVisibility) {
         nextButton.textContent = NEXT;
