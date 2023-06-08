@@ -67,13 +67,6 @@ let pageFour = {
     'goButton' : false,
     'backButton' : true
 };
-let pageFour = {
-    'heading' : 'Subtract your new number from the original number',
-    'nextButton' : true,
-    'exampleText' : 'Ex: 14 - 5 = 9 click next to proceed',
-    'goButton' : false,
-    'backButton' : true
-};
 let pageFive = {
     'heading' : '0 - & 1 - @ 2 - $ 3 - B ...',
     'nextButton' : true,
