@@ -79,7 +79,7 @@ function updatePage() {
     heading.textContent = pages[currentPage].headingText; 
     exampleText.textContent = pages[currentPage].exampleText;
     if (pages[currentPage].roundButtonVisibility) {
-        roundButton.textContent = GO;
+        roundButton.textContent = "GO";
     } else {
         roundButton.innerHTML = "<i></i>";
         let icon = document.querySelector("i");
@@ -89,19 +89,21 @@ function updatePage() {
     if (pages[currentPage].nextButtonVisibility) {
         nextButton.textContent = NEXT;
     } else {
-        nextButton.style.visibility = "hidden"
+        nextButton.style.visibility = "hidden";
     }
 
 };
 
-nextButton.addEventListener('click', currentPage++, updatePage);
-roundButton.addEventListener('click', () => {
+nextButton.addEventListener('click', currentPage+=, updatePage);
+
+roundButton.addEventListener('click', roundButton() {
     if (currentPage === 0) {
-        currentPage++;
+        let currentPage = currentPage + 1;
+        console.log(currentPage);
         updatePage();
     } else {
-        currentPage--;
+        let currentPage = currentPage - 1;
         updatePage();
-    }
-} )
+    };
+
 
