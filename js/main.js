@@ -26,7 +26,7 @@ function render() {
     nextButton = document.createElement("button");
         nextButton.setAttribute("id", "nextButton");
         col.appendChild(nextButton);
-    exampleText = document.createElement("p")
+    exampleText = document.createElement("p");
         exampleText.setAttribute("id", "exampleText");
         col.appendChild(exampleText);
     roundButton = document.createElement("button");
@@ -39,7 +39,7 @@ function render() {
 window.addEventListener("load", (event) => { //event listener for when the page loads it will render the initial page, and update it accordingly using the updatePage function
     render();
     heading = document.getElementById("heading");
-    nextButton = document.getElementById("next");
+    nextButton = document.getElementById("nextButton");
     exampleText = document.getElementById("exampleText");
     roundButton = document.getElementById("roundButton");
     updatePage();
@@ -52,28 +52,28 @@ let pageOne = {
     'roundButtonVisibility' : true
 };
 let pageTwo = {
-    'headingText' : 'Pick a number from 01 - 99',
+    'headingText' : 'Pick a number from 1 - 99',
     'nextButtonVisibility' : true,
     'exampleText' : 'when you have your number click next',
-    'roundButtonVisibility' : true
+    'roundButtonVisibility' : false
 };
 let pageThree = {
     'headingText' : 'Add both digits together to get a new number',
     'nextButtonVisibility' : true,
     'exampleText' : 'Ex: 14 is 1 + 4 = 5 click next to proceed',
-    'roundButtonVisibility' : true
+    'roundButtonVisibility' : false
 };
 let pageFour = {
     'headingText' : 'Subtract your new number from the original number',
-    'nextButtonVisiblity' : true,
+    'nextButtonVisibility' : true,
     'exampleText' : 'Ex: 14 - 5 = 9 click next to proceed',
-    'roundButtonVisibility' : true
+    'roundButtonVisibility' : false
 };
 let pageFive = {
     'headingText' : '0 - & 1 - @ 2 - $ 3 - B ...',
     'nextButtonVisibility' : true,
     'exampleText' : 'Find your new number. Note the symbol beside the number',
-    'roundButtonVisibility' : true
+    'roundButtonVisibility' : false
 };
 let pageSix = {
     'headingText' : '&',
@@ -98,6 +98,7 @@ function updatePage() {
     }
     if (pages[currentPage].nextButtonVisibility) { //if nextButtonVisibility is true, display button with text NEXT or else hide the button
         nextButton.textContent = "NEXT";
+        document.getElementById("nextButton").style.visibility = "visible";
     } else {
         document.getElementById("nextButton").style.visibility = "hidden";
     };
@@ -117,6 +118,13 @@ function togglePage() { //this function will go the next page if currentPage ===
         updatePage();
     }
 }
+
+function divisibleByNine () {
+    if (num % 9 === 0) {
+        return &;
+    }
+};
+
 
 
 
