@@ -22,12 +22,9 @@ function render() {
     const exampleText = document.createElement("p")
         exampleText.setAttribute("id", "exampleText");
         col.appendChild(exampleText);
-    const goButton = document.createElement("button");
-        goButton.setAttribute("id", "goButton");
-        col.appendChild(goButton);
-    const backButton = document.createElement("button");
-        backButton.setAttribute("id", "backButton");
-        col.appendChild(backButton);
+    const roundButton = document.createElement("button");
+        roundButton.setAttribute("id", "roundButton");
+        col.appendChild(roundButton);
 }
 
 render ();
@@ -35,8 +32,7 @@ render ();
 const heading = document.getElementById("heading");
 const nextButton = document.getElementById("next");
 const exampleText = document.getElementById("exampleText");
-const goButton = document.getElementById("go");
-const backButton = document.getElementById("back");
+const roundButton = document.getElementById("roundButton");
 
 
 let pageOne = {
@@ -91,7 +87,7 @@ function updatePage() {
     if (pages[currentPage].goButton) {
         goButton.textContent = GO;
     } else {
-        goButton.innerHTML = ""
+        goButton.innerHTML = "<img src='https://png.pngtree.com/png-vector/20211101/ourmid/pngtree-reverse-icon-png-image_4018016.png' alt='reverse arrow' />"
     }
 };
 
