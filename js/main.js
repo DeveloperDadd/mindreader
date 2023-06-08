@@ -46,8 +46,6 @@ window.addEventListener("load", (event) => { //event listener for when the page 
     console.log("page is fully loaded");
   });
 
-
-
 let pageOne = {
     'headingText' : 'I can read your mind', 
     'nextButtonVisibility' : false,
