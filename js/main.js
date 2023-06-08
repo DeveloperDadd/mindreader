@@ -38,56 +38,53 @@ const roundButton = document.getElementById("roundButton");
 let pageOne = {
     'headingText' : "I can read your mind", 
     'nextButtonVisibility' : false,
-    'exampleTextVisibility' : false,
-    'goButtonVisibility' : true,
-    'roundButtonVisibility' : false
+    'exampleText' : '',
+    'roundButtonVisibility' : true
 };
 let pageTwo = {
-    'heading' : 'Pick a number from 01 - 99',
-    'nextButton' : true,
+    'headingText' : 'Pick a number from 01 - 99',
+    'nextButtonVisibility' : true,
     'exampleText' : 'when you have your number click next',
-    'goButton' : false,
-    'backButton' : true,
+    'roundButtonVisibility' : true
 };
 let pageThree = {
-    'heading' : 'Add both digits together to get a new number',
-    'nextButton' : true,
+    'headingText' : 'Add both digits together to get a new number',
+    'nextButtonVisibility' : true,
     'exampleText' : 'Ex: 14 is 1 + 4 = 5 click next to proceed',
-    'goButton' : false,
-    'backButton' : true
+    'roundButtonVisibility' : true
 };
 let pageFour = {
-    'heading' : 'Subtract your new number from the original number',
-    'nextButton' : true,
+    'headingText' : 'Subtract your new number from the original number',
+    'nextButtonVisiblity' : true,
     'exampleText' : 'Ex: 14 - 5 = 9 click next to proceed',
-    'goButton' : false,
-    'backButton' : true
+    'roundButtonVisibility' : true
 };
 let pageFive = {
-    'heading' : '0 - & 1 - @ 2 - $ 3 - B ...',
-    'nextButton' : true,
+    'headingText' : '0 - & 1 - @ 2 - $ 3 - B ...',
+    'nextButtonVisibility' : true,
     'exampleText' : 'Find your new number. Note the symbol beside the number',
-    'goButton' : false,
-    'backButton' : true
+    'roundButtonVisiblity' : true
 };
 let pageSix = {
-    'heading' : '&',
-    'nextButton' : false,
-    'exampleText' : 'Your symbol is:<br> &',
-    'goButton' : false,
-    'backButton' : true
+    'headingText' : '&',
+    'nextButtonVisibility' : false,
+    'exampleText' : 'Your symbol is: &',
+    'roundButtonVisibility' : false
 };
 
 let pages = [pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix];
 let currentPage = 0;
 
 function updatePage() {
-    heading.textContent = pages[currentPage].heading; 
+    heading.textContent = pages[currentPage].headingText; 
     exampleText.textContent = pages[currentPage].exampleText;
-    if (pages[currentPage].goButton) {
-        goButton.textContent = GO;
+    if (pages[currentPage].roundButton) {
+        roundButton.textContent = GO;
     } else {
-        goButton.innerHTML = "<img src='https://png.pngtree.com/png-vector/20211101/ourmid/pngtree-reverse-icon-png-image_4018016.png' alt='reverse arrow' />"
+        roundButton.innerHTML = "<img src='https://png.pngtree.com/png-vector/20211101/ourmid/pngtree-reverse-icon-png-image_4018016.png' alt='reverse arrow' />"
     }
 };
+
+nextButton.addEventListener('click', currentPage++, updatePage);
+
 
