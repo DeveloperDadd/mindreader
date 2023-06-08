@@ -25,9 +25,8 @@ function render() {
     const roundButton = document.createElement("button");
         roundButton.setAttribute("id", "roundButton");
         col.appendChild(roundButton);
-}
-
-render ();
+    let currentPage = 0;
+};
 
 const heading = document.getElementById("heading");
 const nextButton = document.getElementById("next");
@@ -36,7 +35,7 @@ const roundButton = document.getElementById("roundButton");
 
 
 let pageOne = {
-    'headingText' : "I can read your mind", 
+    'headingText' : 'I can read your mind', 
     'nextButtonVisibility' : false,
     'exampleText' : '',
     'roundButtonVisibility' : true
@@ -73,7 +72,6 @@ let pageSix = {
 };
 
 let pages = [pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix];
-let currentPage = 0;
 
 function updatePage() {
     heading.textContent = pages[currentPage].headingText; 
@@ -90,20 +88,25 @@ function updatePage() {
         nextButton.textContent = NEXT;
     } else {
         nextButton.style.visibility = "hidden";
-    }
-
+    };
 };
 
-nextButton.addEventListener('click', currentPage+=, updatePage);
+function nextPage() {
+    currentPage += 1;
+    updatePage();
+};
 
-roundButton.addEventListener('click', roundButton() {
+function roundButton() {
     if (currentPage === 0) {
-        let currentPage = currentPage + 1;
-        console.log(currentPage);
+        nextPage();
+    } else if (currentPage >= 1) {
+        currentPage -= 1;
         updatePage();
-    } else {
-        let currentPage = currentPage - 1;
-        updatePage();
-    };
+    }
+}
+
+nextButton.addEventListener('click', nextPage());
+roundButton.addEventListener('click', roundButton());
+
 
 
