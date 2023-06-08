@@ -43,7 +43,6 @@ window.addEventListener("load", (event) => { //event listener for when the page 
     exampleText = document.getElementById("exampleText");
     roundButton = document.getElementById("roundButton");
     updatePage();
-    console.log("page is fully loaded");
   });
 
 let pageOne = {
@@ -98,14 +97,15 @@ function updatePage() {
         icon.classList.add("bi-arrow-90deg-left");
     }
     if (pages[currentPage].nextButtonVisibility) { //if nextButtonVisibility is true, display button with text NEXT or else hide the button
-        nextButton.textContent = 'NEXT';
+        nextButton.textContent = "NEXT";
     } else {
-        nextButton.style.visibility = "hidden";
+        document.getElementById("nextButton").style.visibility = "hidden";
     };
 };
 
 function nextPage() { //function to increment the currentPage by one and then update the page
     currentPage += 1;
+    console.log(currentPage);
     updatePage();
 };
 
