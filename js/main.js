@@ -89,10 +89,7 @@ let pageSix = {
     'backButton' : true
 };
 
-
-
-
-
+let pages = [pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix];
 
 // look at using switch case
 function checkPage() {
