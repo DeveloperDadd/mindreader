@@ -41,25 +41,27 @@ const backButton = document.getElementById("back");
 let currentPage = 0;
 let pageOne = {
     'headingText' : "I can read your mind", 
-    'nextButtonVisibility' : nextButton.style.visibility = 'hidden',
-    'exampleTextVisibility' : document.style.visibility = 'hidden',
-    'goButtonVisibility' : goButton.style.visibility = 'inital',
-    'backButtonVisibility' : backButton.style.visibility = ''
+    'nextButtonVisibility' : false,
+    'exampleTextVisibility' : false,
+    'goButtonVisibility' : true,
+    'backButtonVisibility' : false
 };
 let pageTwo = {
     'heading' : heading.innerHTML = 'Pick a number from 01 - 99',
-    'nextButton' : nextButton.style.display = 'initial',
-    'exampleText' : exampleText.innerHTML = 'when you have your number click next',
-    'goButton' : goButton.style.visibility = 'hidden',
-    'backButton' : backButton.style.visibility = 'initial'
+    'nextButton' : true,
+    'exampleText' : 'when you have your number click next',
+    'goButton' : false,
+    'backButton' : true,
 };
 let pageThree = {
-    'heading' : heading.innerHTML = 'Pick a number from 01 - 99',
-    'nextButton' : nextButton.style.display = 'initial',
-    'exampleText' : exampleText.innerHTML = 'when you have your number click next',
-    'goButton' : goButton.style.visibility = 'hidden',
-    'backButton' : backButton.style.visibility = 'initial'
-}
+    'heading' : 'Add both digits together to get a new number',
+    'nextButton' : true,
+    'exampleText' : 'Ex: 14 is 1 + 4 = 5 click next to proceed',
+    'goButton' : false,
+    'backButton' : true
+};
+
+
 
 
 // look at using switch case
