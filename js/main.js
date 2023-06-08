@@ -1,8 +1,15 @@
 //The below function when invoked should create a div with class container, another one with class row, and finally one with two classes: col-sm and col-12.
 //Event listener on page load, run the render function
 
+//INITIALIZE VARIABLES
+let heading; 
+let nextButton;  
+let exampleText; 
+let roundButton; 
+let app;
+
 function render() {
-    const app = document.getElementById("app");    
+    app = document.getElementById("app");    
     const contain = document.createElement("div");
         contain.classList.add("container");
         app.appendChild(contain);
@@ -13,25 +20,32 @@ function render() {
         col.classList.add("col-sm");
         col.classList.add("col-12");
         row.appendChild(col);    
-    const heading = document.createElement("h1");
+    heading = document.createElement("h1");
         heading.setAttribute("id", "heading");
         col.appendChild(heading);
-    const nextButton = document.createElement("button");
+    nextButton = document.createElement("button");
         nextButton.setAttribute("id", "nextButton");
         col.appendChild(nextButton);
-    const exampleText = document.createElement("p")
+    exampleText = document.createElement("p")
         exampleText.setAttribute("id", "exampleText");
         col.appendChild(exampleText);
-    const roundButton = document.createElement("button");
+    roundButton = document.createElement("button");
         roundButton.setAttribute("id", "roundButton");
         col.appendChild(roundButton);
-    let currentPage = 0;
+    nextButton.addEventListener('click', nextPage); //when next button is clicked, it will increment to the next page and run the updatePage function
+    roundButton.addEventListener('click', togglePage); //when next button is clicked, it will run through the togglePage function
 };
 
-const heading = document.getElementById("heading");
-const nextButton = document.getElementById("next");
-const exampleText = document.getElementById("exampleText");
-const roundButton = document.getElementById("roundButton");
+window.addEventListener("load", (event) => { //event listener for when the page loads it will render the initial page, and update it accordingly using the updatePage function
+    render();
+    heading = document.getElementById("heading");
+    nextButton = document.getElementById("next");
+    exampleText = document.getElementById("exampleText");
+    roundButton = document.getElementById("roundButton");
+    updatePage();
+    console.log("page is fully loaded");
+  });
+
 
 
 let pageOne = {
@@ -71,32 +85,35 @@ let pageSix = {
     'roundButtonVisibility' : false
 };
 
-let pages = [pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix];
+let pages = [pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix]; //array of all the page objects
+let currentPage = 0; //so pages[currentPage] is the same as pages[0] which would display pageOne
 
 function updatePage() {
-    heading.textContent = pages[currentPage].headingText; 
-    exampleText.textContent = pages[currentPage].exampleText;
-    if (pages[currentPage].roundButtonVisibility) {
+    heading.textContent = pages[currentPage].headingText; //take the index currentPage of array 'pages' and returns the headingText as the textContent
+    exampleText.textContent = pages[currentPage].exampleText; //take the index currentPage of array pages and returns the exampleText as the textContent
+    if (pages[currentPage].roundButtonVisibility) { //if roundButtonVisibility = true; textcontent of button = 0
         roundButton.textContent = "GO";
     } else {
-        roundButton.innerHTML = "<i></i>";
+        roundButton.innerHTML = "<i></i>"; //or else the innerHTML will be an icon of a reverse arrow
         let icon = document.querySelector("i");
         icon.classList.add("bi");
         icon.classList.add("bi-arrow-90deg-left");
     }
-    if (pages[currentPage].nextButtonVisibility) {
-        nextButton.textContent = NEXT;
+    if (pages[currentPage].nextButtonVisibility) { //if nextButtonVisibility is true, display button with text NEXT or else hide the button
+        nextButton.textContent = 'NEXT';
     } else {
         nextButton.style.visibility = "hidden";
     };
 };
 
-function nextPage() {
+
+
+function nextPage() { //function to increment the currentPage by one and then update the page
     currentPage += 1;
     updatePage();
 };
 
-function roundButton() {
+function togglePage() { //this function will go the next page if currentPage === 0, if it is greater than 0 it will decrement. 
     if (currentPage === 0) {
         nextPage();
     } else if (currentPage >= 1) {
@@ -105,8 +122,7 @@ function roundButton() {
     }
 }
 
-nextButton.addEventListener('click', nextPage());
-roundButton.addEventListener('click', roundButton());
+
 
 
 
