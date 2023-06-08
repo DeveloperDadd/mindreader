@@ -63,7 +63,7 @@ let pageFive = {
     'headingText' : '0 - & 1 - @ 2 - $ 3 - B ...',
     'nextButtonVisibility' : true,
     'exampleText' : 'Find your new number. Note the symbol beside the number',
-    'roundButtonVisiblity' : true
+    'roundButtonVisibility' : true
 };
 let pageSix = {
     'headingText' : '&',
@@ -78,13 +78,27 @@ let currentPage = 0;
 function updatePage() {
     heading.textContent = pages[currentPage].headingText; 
     exampleText.textContent = pages[currentPage].exampleText;
-    if (pages[currentPage].roundButton) {
+    if (pages[currentPage].roundButtonVisibility) {
         roundButton.textContent = GO;
     } else {
-        roundButton.innerHTML = "<img src='https://png.pngtree.com/png-vector/20211101/ourmid/pngtree-reverse-icon-png-image_4018016.png' alt='reverse arrow' />"
+        roundButton.innerHTML = "<i class="bi bi-arrow-90deg-left"></i>"
     }
+    if (pages[currentPage].nextButtonVisibility) {
+        nextButton.textContent = NEXT;
+    } else {
+        nextButton.style.visibility = "hidden"
+    }
+
 };
 
 nextButton.addEventListener('click', currentPage++, updatePage);
-
+roundButton.addEventListener('click', () => {
+    if (currentPage === 0) {
+        currentPage++;
+        updatePage();
+    } else {
+        currentPage--;
+        updatePage();
+    }
+} )
 
