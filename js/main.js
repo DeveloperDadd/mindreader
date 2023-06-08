@@ -38,7 +38,7 @@ const exampleText = document.getElementById("exampleText");
 const goButton = document.getElementById("go");
 const backButton = document.getElementById("back");
 
-let currentPage = 0;
+
 let pageOne = {
     'headingText' : "I can read your mind", 
     'nextButtonVisibility' : false,
@@ -83,32 +83,12 @@ let pageSix = {
 };
 
 let pages = [pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix];
-
-// look at using switch case
-function checkPage() {
-    if (currentPage === 1) {
-        console.log('You are on page ' + currentPage);
-        return pageOne;
-    } else if (currentPage === 2) {
-        console.log('You are on page ' + currentPage);
-        return pageTwo;
-    } else if (currentPage === 3) {
-        console.log('You are on page ' + currentPage);
-        return pageThree;
-    } else if (currentPage === 4) {
-        console.log('You are on page ' + currentPage);
-        return pageFour;
-    } else if (currentPage === 5) {
-        console.log('You are on page ' + currentPage);
-        return pageFive;
-    } else if (currentPage === 6) {
-        console.log('You are on page ' + currentPage);
-        return pageSix;
-    }
-}
+let currentPage = 0;
 
 
 
-
-
+function updatePage() {
+    heading.textContent = pages[currentPage].heading; 
+    exampleText.textContent = pages[currentPage].exampleText;
+};
 
