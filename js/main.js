@@ -47,7 +47,7 @@ let pageOne = {
     'backButtonVisibility' : false
 };
 let pageTwo = {
-    'heading' : heading.innerHTML = 'Pick a number from 01 - 99',
+    'heading' : 'Pick a number from 01 - 99',
     'nextButton' : true,
     'exampleText' : 'when you have your number click next',
     'goButton' : false,
