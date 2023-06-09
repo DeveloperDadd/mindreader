@@ -43,45 +43,49 @@ window.addEventListener("load", (event) => { //event listener for when the page 
     exampleText = document.getElementById("exampleText");
     roundButton = document.getElementById("roundButton");
     updatePage();
-    getNumber();
-    showSymbols();
   });
 
 let pageOne = {
     'headingText' : 'I can read your mind', 
     'nextButtonVisibility' : false,
     'exampleText' : '',
-    'roundButtonVisibility' : true
+    'roundButtonVisibility' : true,
+    'symbolsTableVisibility': false
 };
 let pageTwo = {
     'headingText' : 'Pick a number from 1 - 99',
     'nextButtonVisibility' : true,
     'exampleText' : 'when you have your number click next',
-    'roundButtonVisibility' : false
+    'roundButtonVisibility' : false,
+    'symbolsTableVisibility': false
 };
 let pageThree = {
     'headingText' : 'Add both digits together to get a new number',
     'nextButtonVisibility' : true,
     'exampleText' : 'Ex: 14 is 1 + 4 = 5 click next to proceed',
-    'roundButtonVisibility' : false
+    'roundButtonVisibility' : false,
+    'symbolsTableVisibility': false
 };
 let pageFour = {
     'headingText' : 'Subtract your new number from the original number',
     'nextButtonVisibility' : true,
     'exampleText' : 'Ex: 14 - 5 = 9 click next to proceed',
-    'roundButtonVisibility' : false
+    'roundButtonVisibility' : false,
+    'symbolsTableVisibility': false
 };
 let pageFive = {
     'headingText' : '0 - & 1 - @ 2 - $ 3 - B ...',
     'nextButtonVisibility' : true,
     'exampleText' : 'Find your new number. Note the symbol beside the number',
-    'roundButtonVisibility' : false
+    'roundButtonVisibility' : false,
+    'symbolsTableVisibility': true
 };
 let pageSix = {
     'headingText' : '&',
     'nextButtonVisibility' : false,
     'exampleText' : 'Your symbol is: &',
-    'roundButtonVisibility' : false
+    'roundButtonVisibility' : false,
+    'symbolsTableVisibility': false
 };
 
 let pages = [pageOne, pageTwo, pageThree, pageFour, pageFive, pageSix]; //array of all the page objects
@@ -104,6 +108,16 @@ function updatePage() {
     } else {
         document.getElementById("nextButton").style.visibility = "hidden";
     };
+  if (pages[currentPage].symbolsTableVisibility) {
+        getNumber();
+        let finalSymbols = showSymbols();
+        heading.classList.add("scrollspy-example");
+        heading.setAttribute("data-spy", "scroll");
+        heading.setAttribute("data-target", "#list-example");
+        heading.setAttribute("data-offset", "0");
+    } else {
+        document.getElementById("scrollspy").style.visibility = "hidden";
+    } 
 };
 
 function nextPage() { //function to increment the currentPage by one and then update the page
@@ -143,8 +157,6 @@ function showSymbols() {
       symbol = '&';
     };
     output += `${i} - ${symbol}<br>`;
-  }
-  document.getElementById("scrollspy").innerHTML = output;
-}
-
-
+  };
+  document.getElementById("heading").innerHTML = output;
+};
