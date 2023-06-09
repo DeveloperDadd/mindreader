@@ -154,7 +154,7 @@ function showSymbols() {
     let randomNumber = getNumber();
     let symbol = symbolsArr[randomNumber];
     if (i === 0 || i % 9 === 0) {
-      symbol = '&';
+      symbol = '&'; //random symbol displayed on page 6 = chosen symbol
     };
     output += `${i} - ${symbol}<br>`;
   };
