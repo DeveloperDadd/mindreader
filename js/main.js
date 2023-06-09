@@ -43,6 +43,8 @@ window.addEventListener("load", (event) => { //event listener for when the page 
     exampleText = document.getElementById("exampleText");
     roundButton = document.getElementById("roundButton");
     updatePage();
+    getNumber();
+    showSymbols();
   });
 
 let pageOne = {
