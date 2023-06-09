@@ -119,13 +119,6 @@ function togglePage() { //this function will go the next page if currentPage ===
     }
 }
 
-function divisibleByNine () {
-    if (num % 9 === 0) {
-        return &;
-    }
-};
-
-
 
 //THE BELOW PORTION IS THE FUNCTIONALITY TO GENERATE RANDOM SYMBOLS AND ATTACH THEM TO NUMBERS 00 - 99;
 
