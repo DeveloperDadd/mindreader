@@ -127,6 +127,29 @@ function divisibleByNine () {
 
 
 
+//THE BELOW PORTION IS THE FUNCTIONALITY TO GENERATE RANDOM SYMBOLS AND ATTACH THEM TO NUMBERS 00 - 99;
 
+let lower = 'abcdefghijklmnopqrstuvwxyz'.split('');
+let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+let alphabet = lower.concat(upper);
+let symbols = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '-', '+'];
+let symbolsArr = symbols.concat(alphabet);
+
+function getNumber() {
+  return Math.floor(Math.random() * symbolsArr.length);
+}
+
+function showSymbols() {
+  let output = '';
+  for (let i = 0; i < 100; i++) {
+    let randomNumber = getNumber();
+    let symbol = symbolsArr[randomNumber];
+    if (i === 0 || i % 9 === 0) {
+      symbol = '&';
+    };
+    output += `${i} - ${symbol}<br>`;
+  }
+  document.getElementById("scrollspy").innerHTML = output;
+}
 
 
